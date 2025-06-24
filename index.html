@@ -1,24 +1,47 @@
-<!DOCTYPE html>
+<!DOCTYPE html>Add commentMore actions
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Verificação de Compatibilidade Solar</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Solar</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Verificação de Compatibilidade Solar</h1>
+    <h2>Calculadora de Sistema Solar</h2>
+    <div class="container">
+        <div class="calculator">
+            <h3>Máxima Potência de INVERSOR</h3>
 
-  <label for="modulo">Selecione o Módulo Solar:</label>
-  <select id="modulo"></select>
+            <label>Nome do Cliente:</label>
+            <input type="text" id="nomeCliente" placeholder="Digite o nome do cliente">
 
-  <label for="inversor">Selecione o Inversor:</label>
-  <select id="inversor"></select>
+            <label>Data:</label>
+            <input type="date" id="dataProjeto">
 
-  <button onclick="verificarCompatibilidade()">Verificar Compatibilidade</button>
+            <label>Potência do Inversor (kW):</label>
+            <input type="number" id="potInversor" placeholder="Ex: 75">
 
-  <div id="resultado" class="resultado"></div>
+            <label>Potência do Módulo (W):</label>
+            <input type="number" id="potModulo" placeholder="Ex: 610">
 
-  <script src="script.js"></script>
+            <label>Número de Strings do Inversor:</label>
+            <input type="number" id="numStrings" placeholder="Ex: 14">
+
+            <label>Tensão Máxima do Módulo (Vmp):</label>
+            <input type="number" id="tensaoModulo" placeholder="Ex: 40.6">
+
+            <label>Overload (%):</label>
+            <input type="number" id="overload" placeholder="Ex: 50" min="0" max="50">
+
+            <button onclick="calcularSistema()">Calcular</button>
+            <h4>Resultados:</h4>
+            <p id="resumo"></p>
+        </div>
+    </div>
+
+    <button onclick="salvarPDF()">Salvar em PDF</button>
+
+    <script src="script.js"></script>
 </body>
 </html>
